@@ -25,7 +25,7 @@ const BookCard = ({ book, addToBookshelf, removeFromBookshelf }) => {
   const bookAuthor = book.author_name ? book.author_name.join(', ') : 'Unknown Author';
 
   return (
-    <div className="relative w-72 h-96 bg-white rounded-xl shadow-md overflow-hidden mx-auto flex flex-col">
+    <div className="relative w-72 h-102 bg-white rounded-xl shadow-md overflow-hidden mx-auto flex flex-col">
       <div className="relative flex-shrink-0 h-full w-full">
         <img
           className="w-full h-full object-cover"
