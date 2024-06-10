@@ -7,13 +7,12 @@ const BookshelfPage = () => {
   const [books, setBooks] = useState([]);
   const [notification, setNotification] = useState(null);
   const [favorites, setFavorites] = useState(JSON.parse(localStorage.getItem('favorites')) || []);
-  
 
   useEffect(() => {
     const bookshelf = JSON.parse(localStorage.getItem('bookshelf')) || [];
     setBooks(bookshelf);
   }, []);
-  
+
   const toggleFavorite = (book) => {
     let updatedFavorites;
     if (favorites.some(fav => fav.key === book.key)) {
@@ -35,23 +34,38 @@ const BookshelfPage = () => {
   };
 
   return (
-    <div className="p-4">
+    <div className="p-4 min-h-screen flex flex-col">
+      
       {notification && (
         <Notification message={notification} onClose={() => setNotification(null)} type="error" />
       )}
-      <h1 className="text-3xl font-bold px-3 flex justify-center align-center">My Bookshelf</h1>
+       <h1 className="text-3xl font-bold flex items-center justify-center">My Bookshelf</h1>
       <div className="flex justify-between items-center mb-4">
+        
         <Link to="/">
           <button className="back-to-search-button bg-primary-color hover:bg-primary-hover-color text-white px-4 py-2 rounded">
             Back to Search
           </button>
         </Link>
+       
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {books.map((book, index) => (
-          <BookCard key={index} book={book} removeFromBookshelf={removeFromBookshelf} />
-        ))}
-      </div>
+      {books.length === 0 ? (
+        <div className="text-center font - lg text-gray-500 mt-16">
+          You have no books in Your Bookshelf. Go to the search page to add books.
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {books.map((book, index) => (
+            <BookCard
+              key={index}
+              book={book}
+              removeFromBookshelf={removeFromBookshelf}
+              isFavorite={favorites.some(fav => fav.key === book.key)}
+              toggleFavorite={() => toggleFavorite(book)}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

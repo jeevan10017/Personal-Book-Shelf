@@ -85,7 +85,7 @@ const BookSearchPage = () => {
   };
 
   return (
-    <div className="p-4 relative min-h-screen">
+    <div className="p-4 relative min-h-screen mt-2">
       <div className="flex justify-between items-center mb-4">
         <h1 className="text-3xl font-bold">Search Books</h1>
         <Link to="/bookshelf">
@@ -101,7 +101,7 @@ const BookSearchPage = () => {
         getSuggestionValue={getSuggestionValue}
         renderSuggestion={renderSuggestion}
         inputProps={{
-          placeholder: 'Search for books',
+          placeholder: 'Search for books / authors... ',
           value: query,
           onChange: onChange,
         }}
