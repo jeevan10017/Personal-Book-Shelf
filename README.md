@@ -1,70 +1,124 @@
-# Getting Started with Create React App
+# Personal-Book-Shelf
+![Designer_4-modified_320x320](https://github.com/jeevan10017/Personal-Book-Shelf/assets/132948936/158f6740-bf27-4f59-8842-353df70af9bf)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Overview
 
-In the project directory, you can run:
+My Book App is a React-based application that allows users to search for books using the Open Library API, add books to their personal bookshelf, and manage their bookshelf. The application supports providing a better user experience.
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Book Search**: Search for books using the Open Library API with auto suggestion and fuz search.
+- **Bookshelf Management**: Add and remove books from your personal bookshelf.
+- **Responsive Design**: Works well on both desktop and mobile devices.
+- **Favorites**: Mark books as favorites for quick access.
+- **Notifications**: Receive notifications when books are added or removed from the bookshelf.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+- 
+## Technologies Used
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **React**: A JavaScript library for building user interfaces.
+- **Axios**: A promise-based HTTP client for making API requests.
+- **Fuse.js**: A lightweight fuzzy-search library.
+- **React Autosuggest**: A React component for autosuggest input fields.
+- **Tailwind CSS**: A utility-first CSS framework for styling.
+- **React Router**: A collection of navigational components for React applications.
 
-### `npm run build`
+- 
+## Demo
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+You can see a live application demo [here](https://personal-bookshelf-liard.vercel.app/).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![Screenshot 2024-06-11 034101](https://github.com/jeevan10017/Personal-Book-Shelf/assets/132948936/17888be6-dce8-4b04-af03-b0ff9e386a5e)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![Screenshot 2024-06-11 034132](https://github.com/jeevan10017/Personal-Book-Shelf/assets/132948936/ff76de83-3b02-46d3-9a47-750410852e9a)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Installation
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Clone the repository:
+    ```sh
+    https://github.com/jeevan10017/Personal-Book-Shelf.git
+    cd my-book-app
+    ```
 
-### Code Splitting
+2. Install the dependencies:
+    ```sh
+    npm install
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Running the Application
 
-### Analyzing the Bundle Size
+To run the application locally, use the following command:
+```sh
+npm start
+```
+This will start the development server and you can view the application in your browser at ```http://localhost:3000```.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Building the Application
+To build the production application, use the following command:
+```
+npm run build
+```
+This will create a build directory with all the production files.
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+![Screenshot 2024-06-11 031314](https://github.com/jeevan10017/Personal-Book-Shelf/assets/132948936/5ccac10d-24cc-4832-bbc9-eec3a1615668)
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+# Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Book Search:
+Type in the search bar to search for books by title or author.
+Results will appear as you type, utilizing fuzzy search and autocomplete.
 
-### `npm run build` fails to minify
+## Add to Bookshelf:
+Click the "Add to Bookshelf" button on a book card to add the book to your bookshelf.
+A notification will appear confirming the addition.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Manage Bookshelf:
+Go to the "My Bookshelf" page to view your saved books.
+Remove books from the bookshelf by clicking the "Remove" button. A notification will appear confirming the removal.
+
+## Favourites:
+Click the heart icon on a book card to mark it as a favorite.
+The heart icon will change color to indicate that the book is a favorite.
+
+# Components
+## BookCard.jsx
+Component to display individual book details with options to add to bookshelf and mark as favorite.
+
+## BookSearchPage.jsx
+Component for searching books and displaying search results with fuzzy search and autocomplete.
+
+## BookshelfPage.jsx
+Component to display books added to the bookshelf and manage them.
+
+## Footer.jsx
+Footer component with links and credits.
+
+## Notification.jsx
+Component to display notifications.
+
+## App.js
+Main application component that sets up routing and theming.
+
+# License
+This project is licensed under the MIT License 
+
+# Author
+© 2024 Jeevan Kumar Korra. All rights reserved.
+
+## Contact
+If you have any questions or feedback, please contact me at jeevankumarkorra2005@gmail.com.
+
+# Thank you for using the Personal-Book-Shelf App!
+
+
