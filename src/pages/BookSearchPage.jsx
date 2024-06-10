@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Fuse from 'fuse.js';
+import Autosuggest from 'react-autosuggest';
 import BookCard from './BookCard';
 import { Link } from 'react-router-dom';
 import Notification from './Notification';
@@ -7,24 +9,61 @@ import Notification from './Notification';
 const BookSearchPage = () => {
   const [query, setQuery] = useState('');
   const [books, setBooks] = useState([]);
+  const [allBooks, setAllBooks] = useState([]);
   const [loading, setLoading] = useState(false);
   const [favorites, setFavorites] = useState(JSON.parse(localStorage.getItem('favorites')) || []);
   const [notification, setNotification] = useState(null);
+  const [suggestions, setSuggestions] = useState([]);
 
   useEffect(() => {
     if (query.length > 2) {
       setLoading(true);
-      axios.get(`https://openlibrary.org/search.json?q=${query}&limit=10&page=3`)
+      axios.get(`https://openlibrary.org/search.json?q=${query}&limit=10&page=1`)
         .then(response => {
-          setBooks(response.data.docs);
+          setAllBooks(response.data.docs);
+          const fuse = new Fuse(response.data.docs, {
+            keys: ['title', 'author_name'],
+            includeScore: true,
+            threshold: 0.4, 
+          });
+          const result = fuse.search(query).map(res => res.item);
+          setBooks(result);
           setLoading(false);
         })
         .catch(error => {
           console.error('Error fetching data: ', error);
           setLoading(false);
         });
+    } else {
+      setBooks([]);
     }
   }, [query]);
+
+  const handleSuggestionsFetchRequested = ({ value }) => {
+    const fuse = new Fuse(allBooks, {
+      keys: ['title', 'author_name'],
+      includeScore: true,
+      threshold: 0.3,
+    });
+    const result = fuse.search(value).map(res => res.item);
+    setSuggestions(result.slice(0, 5)); 
+  };
+
+  const handleSuggestionsClearRequested = () => {
+    setSuggestions([]);
+  };
+
+  const getSuggestionValue = suggestion => suggestion.title;
+
+  const renderSuggestion = suggestion => (
+    <div>
+      {suggestion.title} by {suggestion.author_name ? suggestion.author_name.join(', ') : 'Unknown Author'}
+    </div>
+  );
+
+  const onChange = (event, { newValue }) => {
+    setQuery(newValue);
+  };
 
   const addToBookshelf = (book) => {
     let bookshelf = JSON.parse(localStorage.getItem('bookshelf')) || [];
@@ -55,15 +94,20 @@ const BookSearchPage = () => {
           </button>
         </Link>
       </div>
-      <input
-        type="text"
-        placeholder="Search for books"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        className="p-2 border border-gray-300 rounded mb-4 w-full"
+      <Autosuggest
+        suggestions={suggestions}
+        onSuggestionsFetchRequested={handleSuggestionsFetchRequested}
+        onSuggestionsClearRequested={handleSuggestionsClearRequested}
+        getSuggestionValue={getSuggestionValue}
+        renderSuggestion={renderSuggestion}
+        inputProps={{
+          placeholder: 'Search for books',
+          value: query,
+          onChange: onChange,
+        }}
       />
       {loading && <div className="text-center p-4">Loading...</div>}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
         {!loading && books.map((book) => (
           <BookCard
             key={book.key}

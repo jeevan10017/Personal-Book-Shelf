@@ -57,22 +57,22 @@ button.bg-red-500:hover {
 
 
 .go-to-shelf-button {
-  background: linear-gradient(to right, var(--info-color), var(--info-hover-color));
+  background: linear-gradient(to right, var(--add-to-bookshelf-gradient-start), var(--add-to-bookshelf-gradient-end));
   color: aliceblue;
 }
 
 .go-to-shelf-button:hover {
-  background: linear-gradient(to right, var(--infoo-color), var(--infoo-hover-color));
+  background: linear-gradient(to right, var(--add-to-bookshelf-gradient-hover-start), var(--add-to-bookshelf-gradient-hover-end));
 }
 
 
 .back-to-search-button {
-  background: linear-gradient(to right, var(--info-color), var(--info-hover-color));
+  background: linear-gradient(to right, var(--add-to-bookshelf-gradient-start), var(--add-to-bookshelf-gradient-end));
   color: aliceblue;
 }
 
 .back-to-search-button:hover {
-  background: linear-gradient(to right, var(--infoo-color), var(--infoo-hover-color));
+  background: linear-gradient(to right, var(--add-to-bookshelf-gradient-hover-start), var(--add-to-bookshelf-gradient-hover-end));
 }
 
 header {
@@ -127,4 +127,38 @@ footer a:hover {
 .App-footer a:hover {
   color: var(--info-hover-color);
   text-decoration: underline;
+}
+
+
+.react-autosuggest__container {
+  position: relative;
+}
+
+.react-autosuggest__input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid var(--add-to-bookshelf-gradient-hover-end);
+  border-radius: 4px;
+  background-color: var(--text-color);
+  color: var(--background-color);
+}
+
+.react-autosuggest__suggestions-container {
+  position: absolute;
+  z-index: 1000;
+  width: 100%;
+  border: 1px solid var(--add-to-bookshelf-gradient-hover-end);
+  border-radius: 4px;
+  background-color: var(--text-color);
+}
+
+.react-autosuggest__suggestion {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.react-autosuggest__suggestion--highlighted {
+  background-color: var(--add-to-bookshelf-gradient-start);
+  color: var(--text-color);
 }
