@@ -1,10 +1,6 @@
 # Personal-Book-Shelf
 ![Designer_4-modified_320x320](https://github.com/jeevan10017/Personal-Book-Shelf/assets/132948936/158f6740-bf27-4f59-8842-353df70af9bf)
 
-![Screenshot 2024-06-11 031314](https://github.com/jeevan10017/Personal-Book-Shelf/assets/132948936/5ccac10d-24cc-4832-bbc9-eec3a1615668)
-
-
-
 
 ## Overview
 
@@ -53,6 +49,10 @@ To build the production application, use the following command:
 npm run build
 ```
 This will create a build directory with all the production files.
+
+
+![Screenshot 2024-06-11 031314](https://github.com/jeevan10017/Personal-Book-Shelf/assets/132948936/5ccac10d-24cc-4832-bbc9-eec3a1615668)
+
 
 ## Deployment
 It was deployed in Vercel
