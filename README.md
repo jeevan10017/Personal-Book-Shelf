@@ -12,7 +12,7 @@ My Book App is a React-based application that allows users to search for books u
 
 ## Demo
 
-You can see a live application demo [here]([https://your-demo-link.com](https://personal-bookshelf-liard.vercel.app/)).
+You can see a live application demo [here](https://personal-bookshelf-liard.vercel.app/).
 
 
 ## Installation
