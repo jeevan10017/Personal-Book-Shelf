@@ -47,6 +47,7 @@ This will create a build directory with all the production files.
 It was deployed in Vercel
 
 ## File structure
+
 Personal Bookshelf app/
 ├── public/
 │   ├── index.html
@@ -69,11 +70,11 @@ Personal Bookshelf app/
 └── ...
 
 ## License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License 
 
 ## Contact
 If you have any questions or feedback, please contact me at jeevankumarkorra2005@gmail.com.
 
-# Thank you for using the PersonalBook-Shelf App!
+# Thank you for using the Personal-Book-Shelf App!
 
 
