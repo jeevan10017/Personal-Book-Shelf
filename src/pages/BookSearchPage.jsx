@@ -90,7 +90,7 @@ const BookSearchPage = () => {
         <h1 className="text-3xl font-bold">Search Books</h1>
         <Link to="/bookshelf">
           <button className="go-to-shelf-button bg-primary-color hover:bg-primary-hover-color text-white px-4 py-2 rounded">
-            Go to My Bookshelf
+           My Bookshelf
           </button>
         </Link>
       </div>
